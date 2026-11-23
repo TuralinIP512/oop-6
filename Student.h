@@ -6,11 +6,11 @@
 #include <vector>
 
 class Student {
-    private:
+private:
     std::string name_;
     std::vector<Course*> courses_;
 
-    public:
+public:
     explicit Student(const std::string& name);
 
     void enroll(Course* c);

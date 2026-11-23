@@ -4,11 +4,11 @@
 #include <string>
 
 class Professor {
-    private:
+private:
     std::string name_;
 
 
-    public:
+public:
     explicit Professor(const std::string& name);
 
     const std::string& getName() const;

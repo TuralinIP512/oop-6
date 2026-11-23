@@ -7,12 +7,12 @@ class Professor;
 #include <vector>
 
 class Course {
-    private:
+private:
     std::string name_;
     std::vector<std::string> topics_;
     Professor* professor_;
 
-    public:
+public:
     Course(const std::string& name, Professor* prof);
 
     void addTopic(const std::string& topic);

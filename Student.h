@@ -19,7 +19,13 @@ class Student {
 
     const std::vector<Course*>& getCourse() const;
 
-    ~Student() = default;
+    int getCourseCount() const;
+
+    virtual ~Student() = default;
+
+    std::string getStatus() const;
+
+    int getTuition() const;
 };
 
 #endif

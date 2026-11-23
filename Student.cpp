@@ -16,3 +16,9 @@ void Student::enroll(Course* c) {
 const std::string& Student::getName() const { return name_; }
 
 const std::vector<Course*>& Student::getCourse() const { return courses_; }
+
+int Student::getCourseCount() const { return courses_.size(); }
+
+std::string Student::getStatus() const { return "Student"; }
+
+int Student::getTuition() const { return 0; }

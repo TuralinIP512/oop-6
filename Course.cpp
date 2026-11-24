@@ -32,6 +32,7 @@ void Course::enrollStudent(Student* s) {
         if (existing == s) return;
     }
     students_.push_back(s);
+    s->enroll(this);
 }
 
 const std::vector<Student*>& Course::getStudents() const { return students_; }

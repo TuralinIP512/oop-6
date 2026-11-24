@@ -11,6 +11,7 @@ void Student::enroll(Course* c) {
         if (existing == c ) return;
     }
     courses_.push_back(c);
+    c->enrollStudent(this);
 }
 
 const std::string& Student::getName() const { return name_; }

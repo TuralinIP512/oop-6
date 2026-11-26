@@ -26,6 +26,8 @@ public:
     std::string getStatus() const;
 
     int getTuition() const;
+
+    int getScholarship() const;
 };
 
 #endif

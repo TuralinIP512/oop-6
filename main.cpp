@@ -61,7 +61,7 @@ int main() {
     for (Student* s : all) {
         totalScholarship += s->getScholarship();
     }
-    std::cout << "Total scholarship: " << totalScholarship << "\n";
+    std::cout << "\nTotal scholarship: " << totalScholarship << "\n";
 
     std::cout << "\n------ List of courses ------" << "\n";
     std::cout << "Course: " + optics.getName() << "\n";

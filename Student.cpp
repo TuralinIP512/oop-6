@@ -23,3 +23,5 @@ int Student::getCourseCount() const { return courses_.size(); }
 std::string Student::getStatus() const { return "Student"; }
 
 int Student::getTuition() const { return 0; }
+
+int Student::getScholarship() const { return 0; }

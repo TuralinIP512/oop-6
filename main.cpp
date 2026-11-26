@@ -1,3 +1,5 @@
+// still last step!
+
 #include "Course.h"
 #include "Professor.h"
 #include "Student.h"
@@ -26,28 +28,52 @@ int main() {
 
     optics.enrollStudent(&shirov);
     optics.enrollStudent(&alehina);
-    optics.enrollStudent(&kolmakov);
     optics.enrollStudent(&shirov);      // try to enroll again
 
     kolmakov.enroll(&sociology);
-    alehina.enroll(&sociology);
     shirov.enroll(&sociology);
 
     customerPsychology.enrollStudent(&shirov);
     customerPsychology.enrollStudent(&alehina);
-    customerPsychology.enrollStudent(&kolmakov);
 
-    std::cout << "List of students" << "\n";
-    for (const auto stud : optics.getStudents()) {
-        std::cout << "\t" << stud->getName() << " " + stud->getStatus() << " " << stud->getTuition() << "\n";
+    std::cout << "------ List of students ------" << "\n";
+    std::cout << kolmakov.getName() << " " << kolmakov.getStatus()
+          << " " << kolmakov.getTuition() << "\n";
+    for (const auto& course : kolmakov.getCourse()) {
+        std::cout << "\t" << course->getName() << "\n";
     }
-    std::cout << "\nList of courses: " << "\n";
+
+    std::cout << "\n" << shirov.getName() << " " << shirov.getStatus()
+            << " " << shirov.getTuition() << "\n";
+    for (const auto& course : shirov.getCourse()) {
+        std::cout << "\t" << course->getName() << "\n";
+    }
+
+    std::cout << "\n" << alehina.getName() << " " << alehina.getStatus()
+            << " " << alehina.getTuition() << "\n";
+    for (const auto& course : alehina.getCourse()) {
+        std::cout << "\t" << course->getName() << "\n";
+    }
+
+    // experiment 1
+    Student* all[] = {&kolmakov, &shirov, &alehina};
+    int totalScholarship = 0;
+    for (Student* s : all) {
+        totalScholarship += s->getScholarship();
+    }
+    std::cout << "Total scholarship: " << totalScholarship << "\n";
+
+    std::cout << "\n------ List of courses ------" << "\n";
     std::cout << "Course: " + optics.getName() << "\n";
     std::cout << "\t" << "Professor: " + optics.getProfessor()->getName() << "\n";
     std::cout << "\t" << "Students count: " << optics.getStudentCount() << "\n";
     std::cout << "\tTopics:" << "\n";
     for (const auto& topic : optics.getTopics()) {
         std::cout << "\t\t" << topic << "\n";
+    }
+    std::cout << "\tStudents:\n";
+    for (const auto& stud : optics.getStudents()) {
+        std::cout << "\t\t" << stud->getName() << "\n";
     }
 
     std::cout << "\nCourse: " + sociology.getName() << "\n";
@@ -57,6 +83,10 @@ int main() {
     for (const auto& topic : sociology.getTopics()) {
         std::cout << "\t\t" << topic << "\n";
     }
+    std::cout << "\tStudents:\n";
+    for (const auto& stud : sociology.getStudents()) {
+        std::cout << "\t\t" << stud->getName() << "\n";
+    }
 
     std::cout << "\nCourse: " + customerPsychology.getName() << "\n";
     std::cout << "\t" << "Professor: " + customerPsychology.getProfessor()->getName() << "\n";
@@ -64,6 +94,10 @@ int main() {
     std::cout << "\tTopics:" << "\n";
     for (const auto& topic : customerPsychology.getTopics()) {
         std::cout << "\t\t" << topic << "\n";
+    }
+    std::cout << "\tStudents:\n";
+    for (const auto& stud : customerPsychology.getStudents()) {
+        std::cout << "\t\t" << stud->getName() << "\n";
     }
 
     std::cout << "\n" + kolmakov.getName() << ", Tuition: " << kolmakov.getTuition() << "\n";
